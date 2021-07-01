@@ -1,0 +1,6 @@
+<div class="container_flex_between header">
+  <h3>Form Example</h3>
+  <button mat-raised-button color="primary" (click)="openDialog()">Open Dialog</button>
+</div>
+
+<app-form [userForm]="userForm" (onSend)="submitForm($event)"></app-form>

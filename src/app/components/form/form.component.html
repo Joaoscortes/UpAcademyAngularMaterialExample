@@ -1,0 +1,22 @@
+<form [formGroup]="userForm" (ngSubmit)="sendForm()" novalidate>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Username</mat-label>
+    <input type="text" matInput formControlName="username" placeholder="Ex. John Doe">
+    <mat-error *ngIf="username?.hasError('required')">
+      Username is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Datetime</mat-label>
+    <input type="datetime-local" matInput formControlName="datetime">
+    <mat-error *ngIf="datetime?.hasError('required')">
+      Datetime is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <input #inputFile hidden type="file" (change)="uploadFile($event)"/>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>File Uploader</mat-label>
+    <input matInput formControlName="fileUrl" readonly (click)="inputFile.click()">
+    <mat-icon matSuffix>file_upload</mat-icon>
+  </mat-form-field>
+</form>
